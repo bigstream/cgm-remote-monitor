@@ -9,6 +9,7 @@ on:
     branches:
       - master
       - dev
+  workflow_dispatch:
 
 jobs:
   test:
@@ -44,9 +45,9 @@ jobs:
     name: Publish to Docker Hub
     needs: test
     runs-on: ubuntu-latest
-    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') && github.repository_owner == 'nightscout'
+    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') && github.repository_owner == 'bigstream'
     env:
-      DOCKER_IMAGE: nightscout/cgm-remote-monitor
+      DOCKER_IMAGE: grossbaa/cgm-remote-monitor
       PLATFORMS: linux/amd64,linux/arm64
     steps:
       - name: Set up QEMU
