@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') && github.repository_owner == 'bigstream'
     env:
-      DOCKER_IMAGE: grossbaa/cgm-remote-monitor
+      DOCKER_IMAGE: grossbaa/nightscout
       PLATFORMS: linux/amd64,linux/arm64
     steps:
       - name: Set up QEMU
